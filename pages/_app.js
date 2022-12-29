@@ -1,5 +1,5 @@
 import { Toaster } from "react-hot-toast";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import AuthProvider from "../contexts/AuthProvider";
 import "../styles/globals.css";
 
