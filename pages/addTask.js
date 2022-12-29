@@ -1,18 +1,25 @@
 import { Button, Checkbox, FileInput, Label, TextInput } from "flowbite-react";
 import Head from "next/head";
-import Link from "next/link";
+import { useRouter } from "next/router";
+import { useContext } from "react";
+import { toast } from "react-hot-toast";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const AddTask = () => {
+    const { user } = useContext(AuthContext);
+    const router = useRouter();
+
     const handelTaskSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const taskName = form.taskName.value;
         const taskDetails = form.taskDetails.value;
+        const userEmail = user.email;
         const taskImage = form.taskImage.files[0];
 
         const formData = new FormData();
         formData.append("image", taskImage);
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=${process.env.NEXT_PUBLIC_IMGBB_KEY}`;
+        const url = `https://api.imgbb.com/1/upload?expiration=600&key=0c1263ea8fd9c400053f888911233802`;
         console.log(url);
         fetch(url, {
             method: "POST",
@@ -22,9 +29,27 @@ const AddTask = () => {
             .then(imgData => {
                 if (imgData.success) {
                     console.log(imgData.data.url);
+                    const taskImage = imgData.data.url;
+                    const taskData = { taskName, taskDetails, taskImage, userEmail };
+
+                    // store task data to DB
+                    fetch("http://localhost:5000/tasks", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify(taskData),
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
+                            if (result.acknowledged) {
+                                toast.success(`${taskName} task added!`);
+                                router.push("/myTasks");
+                            }
+                        });
                 }
             });
-
         console.log(taskName, taskDetails, taskImage);
     };
     return (
