@@ -9,7 +9,7 @@ const MyTasks = () => {
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allTasks/${user?.email}`)
+        fetch(`https://task-tracker-server-side.vercel.app/allTasks/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

@@ -33,7 +33,7 @@ const AddTask = () => {
                     const taskData = { taskName, taskDetails, taskImage, userEmail };
 
                     // store task data to DB
-                    fetch("http://localhost:5000/tasks", {
+                    fetch("https://task-tracker-server-side.vercel.app/tasks", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",
