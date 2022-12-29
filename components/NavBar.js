@@ -38,7 +38,8 @@ const NavBar = () => {
                 <Navbar.Link href="/addTask">Add A Task</Navbar.Link>
                 <Navbar.Link href="/myTasks">My Tasks</Navbar.Link>
                 <Navbar.Link href="/completedTasks">Completed Tasks</Navbar.Link>
-                {/* <Navbar.Link href="/navbars">Contact</Navbar.Link> */}
+                <Navbar.Link href="/login">Login</Navbar.Link>
+                <Navbar.Link href="/register">Register</Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
     );
