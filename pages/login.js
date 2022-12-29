@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import PrimaryButton from "../components/PrimaryButton";
 import SmallSpinner from "../components/SmallSpinner";
 import Link from "next/link";
+import Head from "next/head";
 
 const Login = () => {
     const { signIn, signInWithGoogle, setUser, loading, setLoading, resetPassword } = useContext(AuthContext);
@@ -61,6 +62,9 @@ const Login = () => {
     };
     return (
         <div className="flex justify-center items-center pt-8">
+            <Head>
+                <title>Login | Task Tracker</title>
+            </Head>
             <div className="flex flex-col max-w-md p-6 rounded-xl sm:p-10 bg-gray-100 text-gray-900">
                 <div className="mb-8 text-center">
                     <h1 className="my-3 text-4xl font-bold">Sign in</h1>

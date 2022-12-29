@@ -8,6 +8,7 @@ import PrimaryButton from "../components/PrimaryButton";
 import SmallSpinner from "../components/SmallSpinner";
 import { AuthContext } from "../contexts/AuthProvider";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const Register = () => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -81,6 +82,9 @@ const Register = () => {
     };
     return (
         <div className="flex justify-center items-center pt-8">
+            <Head>
+                <title>Register | Task Tracker</title>
+            </Head>
             <div className="flex flex-col max-w-md p-6 rounded-xl sm:p-10 bg-gray-100 text-gray-900">
                 <div className="mb-8 text-center">
                     <h1 className="my-3 text-4xl font-bold">Register</h1>
