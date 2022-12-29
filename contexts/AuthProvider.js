@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             unsubscribe();
         };
-    }, [user]);
+    }, []);
 
     //Register & Create User
     const createUser = (email, password) => {
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
     //Logout
     const logout = () => {
         setLoading(true);
-        localStorage.removeItem("truckZone-token");
+        // localStorage.removeItem("truckZone-token");
         // useLogOutNavigate();
         return signOut(auth);
     };

@@ -40,8 +40,8 @@ const Register = () => {
                 createUser(email, password)
                     .then(result => {
                         const user = result.user;
-                        console.log(user);
-                        updateUserProfile(name, imageData.data.display_url)
+                        // console.log(user);
+                        updateUserProfile(name, imageData.data.url)
                             .then(() => {
                                 toast.success("You have registered successfully");
                                 // userJWT(user, accountType);
