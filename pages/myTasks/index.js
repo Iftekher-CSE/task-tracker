@@ -23,7 +23,7 @@ const MyTasks = () => {
                 <title>My Task | Task Tracker</title>
             </Head>
             <h1>All My Tasks</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {tasks.map(task => (
                     <TaskDetails key={task._id} task={task}></TaskDetails>
                 ))}
