@@ -62,7 +62,7 @@ const AddTask = () => {
             <Head>
                 <title>Add Task | Task Tracker</title>
             </Head>
-            <h1 className="text-3xl text-center font-bold">Add A Task</h1>
+            <h1 className="text-3xl text-center font-bold text-[#00A8EC]">Add A Task</h1>
             <form onSubmit={handelTaskSubmit} action="" className="flex flex-col gap-4 mx-10">
                 <div>
                     <div className="mb-2 block">
