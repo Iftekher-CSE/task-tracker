@@ -42,9 +42,7 @@ const NavBar = () => {
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
-                <Navbar.Link href="/" active={true}>
-                    Home
-                </Navbar.Link>
+                <Navbar.Link href="/">Home</Navbar.Link>
                 <Navbar.Link href="/addTask">Add A Task</Navbar.Link>
                 <Navbar.Link href="/myTasks">My Tasks</Navbar.Link>
                 <Navbar.Link href="/completedTasks">Completed Tasks</Navbar.Link>

@@ -1,6 +1,6 @@
 import { Button, Card, Dropdown, Label, TextInput } from "flowbite-react";
 
-const TaskDetails = ({ task }) => {
+export default function TaskDetails({ task }) {
     return (
         <div className="max-w-sm">
             <Card>
@@ -38,6 +38,4 @@ const TaskDetails = ({ task }) => {
             </Card>
         </div>
     );
-};
-
-export default TaskDetails;
+}

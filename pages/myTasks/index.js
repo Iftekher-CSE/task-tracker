@@ -4,8 +4,8 @@ import { useContext, useEffect, useState } from "react";
 import TaskDetails from "../../components/TaskDetails";
 import { AuthContext } from "../../contexts/AuthProvider";
 
-const MyTasks = () => {
-    const { user } = useContext(AuthContext);
+export default function MyTasks() {
+    const { user, setLoading } = useContext(AuthContext);
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
@@ -30,9 +30,7 @@ const MyTasks = () => {
             </div>
         </div>
     );
-};
-
-export default MyTasks;
+}
 
 // export const getStaticProps = async AuthContext => {
 //     const { user } = useContext(AuthContext);
