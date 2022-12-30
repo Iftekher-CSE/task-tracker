@@ -29,7 +29,7 @@ const Register = () => {
         formData.append("image", image);
         // console.log(formData);
 
-        const imageBBurl = `https://api.imgbb.com/1/upload?expiration=600&key=0c1263ea8fd9c400053f888911233802`;
+        const imageBBurl = `https://api.imgbb.com/1/upload?expiration=3600&key=0c1263ea8fd9c400053f888911233802`;
 
         fetch(imageBBurl, {
             method: "POST",

@@ -22,8 +22,8 @@ const AddTask = () => {
 
         const formData = new FormData();
         formData.append("image", taskImage);
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=0c1263ea8fd9c400053f888911233802`;
-        console.log(url);
+        const url = `https://api.imgbb.com/1/upload?expiration=3600&key=0c1263ea8fd9c400053f888911233802`;
+        // console.log(url);
         fetch(url, {
             method: "POST",
             body: formData,
