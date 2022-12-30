@@ -9,7 +9,7 @@ export default function Layout({ children }) {
     return (
         <>
             <NavBar />
-            {loading ? <Spinner></Spinner> : <main>{children}</main>}
+            <main>{children}</main>
             <Footer />
         </>
     );

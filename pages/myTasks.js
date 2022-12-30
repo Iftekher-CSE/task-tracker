@@ -1,8 +1,7 @@
-import { async } from "@firebase/util";
 import Head from "next/head";
 import { useContext, useEffect, useState } from "react";
-import TaskDetails from "../../components/TaskDetails";
-import { AuthContext } from "../../contexts/AuthProvider";
+import TaskDetails from "../components/TaskDetails";
+import { AuthContext } from "../contexts/AuthProvider";
 
 export default function MyTasks() {
     const { user, setLoading } = useContext(AuthContext);
@@ -31,15 +30,3 @@ export default function MyTasks() {
         </div>
     );
 }
-
-// export const getStaticProps = async AuthContext => {
-//     const { user } = useContext(AuthContext);
-//     const res = await fetch(`http://localhost:5000/allTasks/${user.email}`);
-//     const data = await res.json();
-//     console.log(data);
-//     return {
-//         props: {
-//             tasks: data,
-//         },
-//     };
-// };

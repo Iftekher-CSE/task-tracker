@@ -3,13 +3,16 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
+import PrimaryButton from "../components/PrimaryButton";
+import SmallSpinner from "../components/SmallSpinner";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const AddTask = () => {
-    const { user } = useContext(AuthContext);
+    const { user, setLoading, loading } = useContext(AuthContext);
     const router = useRouter();
 
     const handelTaskSubmit = event => {
+        setLoading(true);
         event.preventDefault();
         const form = event.target;
         const taskName = form.taskName.value;
@@ -46,11 +49,13 @@ const AddTask = () => {
                             if (result.acknowledged) {
                                 toast.success(`${taskName} task added!`);
                                 router.push("/myTasks");
+                                setLoading(false);
                             }
                         });
                 }
             });
-        console.log(taskName, taskDetails, taskImage);
+        // console.log(taskName, taskDetails, taskImage);
+        setLoading(false);
     };
     return (
         <div>
@@ -58,12 +63,19 @@ const AddTask = () => {
                 <title>Add Task | Task Tracker</title>
             </Head>
             <h1 className="text-3xl text-center font-bold">Add A Task</h1>
-            <form onSubmit={handelTaskSubmit} className="flex flex-col gap-4 mx-10">
+            <form onSubmit={handelTaskSubmit} action="" className="flex flex-col gap-4 mx-10">
                 <div>
                     <div className="mb-2 block">
                         <Label htmlFor="taskName" value="Task Name" />
                     </div>
                     <TextInput id="taskName" name="taskName" type="text" placeholder="task name" required={true} />
+                </div>
+
+                <div id="fileUpload">
+                    <div className="mb-2 block">
+                        <Label htmlFor="file" value="Upload file" />
+                    </div>
+                    <FileInput id="file" name="taskImage" />
                 </div>
                 <div>
                     <div className="mb-2 block">
@@ -77,15 +89,12 @@ const AddTask = () => {
                         required={true}
                     />
                 </div>
-                <div id="fileUpload">
-                    <div className="mb-2 block">
-                        <Label htmlFor="file" value="Upload file" />
-                    </div>
-                    <FileInput id="file" name="taskImage" />
-                </div>
-                <Button className="my-5" type="submit">
-                    Submit
-                </Button>
+                <PrimaryButton
+                    type="submit"
+                    classes="w-full px-8 py-3 font-semibold rounded-xl bg-gray-900 hover:bg-[#23292E] hover:text-white text-gray-100"
+                >
+                    {loading ? <SmallSpinner></SmallSpinner> : "Submit"}
+                </PrimaryButton>
             </form>
         </div>
     );
