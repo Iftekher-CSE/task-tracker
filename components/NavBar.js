@@ -41,7 +41,9 @@ const NavBar = () => {
                     </div>
                 </>
             ) : (
-                <></>
+                <>
+                    <Navbar.Toggle />
+                </>
             )}
             <Navbar.Collapse>
                 {user?.uid ? (
@@ -53,6 +55,7 @@ const NavBar = () => {
                     </>
                 ) : (
                     <>
+                        <Navbar.Link href="/">Home</Navbar.Link>
                         <Navbar.Link href="/login">Login</Navbar.Link>
                         <Navbar.Link href="/register">Register</Navbar.Link>
                     </>
