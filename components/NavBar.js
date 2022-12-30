@@ -14,8 +14,8 @@ const NavBar = () => {
 
     return (
         <Navbar fluid={true} rounded={true}>
-            <Navbar.Brand href="https://flowbite.com/">
-                <img src="favicon.ico" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+            <Navbar.Brand href="/">
+                <img src="favicon.ico" className="mr-3 h-6 sm:h-9" alt="task Tracker" />
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
                     Task Tracker
                 </span>
@@ -23,7 +23,6 @@ const NavBar = () => {
             {user?.uid ? (
                 <>
                     <div className={`flex md:order-2 `}>
-                        {/* ${user?.uid ? "flex" : "hidden"} */}
                         <Dropdown
                             arrowIcon={false}
                             inline={true}

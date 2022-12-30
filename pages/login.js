@@ -29,7 +29,7 @@ const Login = () => {
                 console.log(user);
                 // userJWT(user);
                 // navigate("/all-user");
-                // router.push(from, { replace: true });
+                router.push("/addTask");
             })
             .catch(err => {
                 toast.error(err.message);

@@ -47,7 +47,7 @@ const Register = () => {
                                 toast.success("You have registered successfully");
                                 // userJWT(user, accountType);
                                 setLoading(false);
-                                router.push("/");
+                                router.push("/addTask");
                             })
                             .catch(err => {
                                 setErrorMessage(err.message);
